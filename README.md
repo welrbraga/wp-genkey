@@ -41,7 +41,7 @@ or
 sudo yum install gpg2
 ```
 
-## Install
+## Installing and running
 
 You just need to save wp-genkey.sh file in a Linux/Mac OS machine and change your executable bit permission.
 
@@ -52,12 +52,22 @@ sudo curl https://github.com/blob/master/genkey.sh -o /usr/local/bin/wp-genkey.s
 chmod +x wp-genkey.sh
 ```
 
-## Running
+### Running after install
 
 Now that the script is saved under a directory in your PATH (/usr/local/bin) you just need to invoke it like any other:
 
 ```shell
 wp-genkey.sh
+```
+
+## Running without installing
+
+A amazing feature of Bash shell is that you can run scripts receveid by stdin. With this you can just get the script and run it without save any file in your machine.
+
+If you want to run in a shoot you will prefer this command line that will run the last version available.
+
+```shell
+curl -sSL  https://github.com/welrbraga/wp-genkey/raw/main/wp-genkey.sh|bash -
 ```
 
 ## Using the keys (option 1)
