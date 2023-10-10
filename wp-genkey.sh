@@ -8,7 +8,7 @@
 
 # Welington R Braga - 2023-08
 
-V="2023.8.27"
+V="2023.10.10"
 
 KEYS=(
     'AUTH_KEY'
@@ -34,7 +34,7 @@ cat <<EoM
 EoM
 for KEY in ${KEYS[@]}; do
     KEY_SPACES="'$KEY',"
-    __RANDOM__=$(gpg --gen-random --armor 0 63)
+    __RANDOM__=$(dd if=/dev/urandom count=64 2>/dev/null | tr -dc '[:graph:]' | cut -c -64)
     printf "define( %-19s '%s' );\n" $KEY_SPACES $__RANDOM__
 done
 echo '?>'

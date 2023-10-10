@@ -23,40 +23,21 @@ It's important to know that when you change those variables, all logged user are
 
 ## Requirement
 
-Sorry guys but nowadays I have no creativity to simplify our lives so I use gpg tool as a random string generator.
+Like I promissed you, I finally remove that unnecessary GPG tool dependancy.
 
-So, you need to have gpg installed in your system to this tool run correctly in your system.
+It worked (and works) fine, but we have others tools installed in all Linux distros that allow us to get the same result without any other apt, rpm, dnf, yum or whichever installer-tool.
 
-Don't worry, you won't use your keys nor generate one. We just use it to generate random sequences.
-
-I promisse you change it in a future, ok!? But for now, use your best package manager to install gpg and go ahead.
-
-```shell
-sudo apt install gpg2
-```
-
-or
-
-```shell
-sudo yum install gpg2
-```
+Now, The only requirement is taht you are using some Linux box with your ordinary tools to generate random sequences.
 
 ## Installing and running
 
-You just need to save wp-genkey.sh file in a Linux/Mac OS machine and change your executable bit permission.
+You just need to save wp-genkey.sh file in a Linux/Mac OS machine, change your executable bit permission and call it by your command line.
 
 Something like this is suficient:
 
 ```shell
 sudo curl https://github.com/blob/master/genkey.sh -o /usr/local/bin/wp-genkey.sh
-chmod +x wp-genkey.sh
-```
-
-### Running after install
-
-Now that the script is saved under a directory in your PATH (/usr/local/bin) you just need to invoke it like any other:
-
-```shell
+sudo chmod +x /usr/local/bin/wp-genkey.sh
 wp-genkey.sh
 ```
 
@@ -67,7 +48,7 @@ A amazing feature of Bash shell is that you can run scripts receveid by stdin. W
 If you want to run in a shoot you will prefer this command line that will run the last version available.
 
 ```shell
-curl -sSL  https://github.com/welrbraga/wp-genkey/raw/main/wp-genkey.sh|bash -
+curl -sSL  https://github.com/welrbraga/wp-genkey/raw/main/wp-genkey.sh | bash -
 ```
 
 ## Using the keys (option 1)
@@ -94,7 +75,7 @@ Secondly, create a crontab file with this config
 
 Some notes about this config:
 
-```note
+```notes
 Change the schedule according your preference (It's scheduled to 3:34 AM).
 
 Look at the path where we save the script (/usr/local/bin/wp-genkey.sh).
