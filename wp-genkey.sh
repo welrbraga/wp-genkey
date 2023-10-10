@@ -34,7 +34,7 @@ cat <<EoM
 EoM
 for KEY in ${KEYS[@]}; do
     KEY_SPACES="'$KEY',"
-    __RANDOM__=$(dd if=/dev/urandom count=64 2>/dev/null | tr -dc '[:graph:]' | cut -c -64)
+    __RANDOM__=$(dd if=/dev/urandom count=78 2>/dev/null | tr -dc '[:alnum:]' | cut -c -78)
     printf "define( %-19s '%s' );\n" $KEY_SPACES $__RANDOM__
 done
 echo '?>'
